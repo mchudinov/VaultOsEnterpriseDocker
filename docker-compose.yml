@@ -12,9 +12,9 @@ services:
     build:
       context: ./vault-os
     environment:
-      - VAULT_ADDR=http://vault:8201
-      - VAULT_API_ADDR=http://vault:8201
-      - VAULT_ADDRESS=http://vault:8201
+      - VAULT_ADDR=http://vault-os:8201
+      - VAULT_API_ADDR=http://vault-os:8201
+      - VAULT_ADDRESS=http://vault-os:8201
       - VAULT_SKIP_VERIFY=true      
     cap_add:
       - IPC_LOCK
@@ -32,9 +32,9 @@ services:
     build:
       context: ./vault-enterprise
     environment:
-      - VAULT_ADDR=http://vault:8201
-      - VAULT_API_ADDR=http://vault:8201
-      - VAULT_ADDRESS=http://vault:8201
+      - VAULT_ADDR=http://vault-enterprise:8201
+      - VAULT_API_ADDR=http://vault-enterprise:8201
+      - VAULT_ADDRESS=http://vault-enterprise:8201
       - VAULT_SKIP_VERIFY=true      
     cap_add:
       - IPC_LOCK
