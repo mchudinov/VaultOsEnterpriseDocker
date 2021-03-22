@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+  vault-os:
+    image: hashicorp/vault
+    container_name: vault-os
+    ports:
+      - 8201:8201
+    networks:
+      - vault
+    restart: always
+    build:
+      context: ./vault-os
+    environment:
+      - VAULT_ADDR=http://vault:8201
+      - VAULT_API_ADDR=http://vault:8201
+      - VAULT_ADDRESS=http://vault:8201
+      - VAULT_SKIP_VERIFY=true      
+    cap_add:
+      - IPC_LOCK
+    command: > 
+      sh -c " vault server -dev -config /vault/config/vault.json "
+
+  vault-enterprise:
+    image: hashicorp/vault-enterprise
+    container_name: vault-enterprise
+    ports:
+      - 8202:8201
+    networks:
+      - vault
+    restart: always
+    build:
+      context: ./vault-enterprise
+    environment:
+      - VAULT_ADDR=http://vault:8201
+      - VAULT_API_ADDR=http://vault:8201
+      - VAULT_ADDRESS=http://vault:8201
+      - VAULT_SKIP_VERIFY=true      
+    cap_add:
+      - IPC_LOCK
+    command: > 
+      sh -c " vault server -dev -config /vault/config/vault.json "
+
+networks:
+  vault:
+    name: vault
+    driver: bridge
+
