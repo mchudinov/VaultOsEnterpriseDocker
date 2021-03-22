@@ -22,9 +22,9 @@ Unseal Key: VHfyFVqbnUjuR9Tos4ZsyqWopB8uuVwGRB5AHqaQAtQ=
 Root Token: s.tFp756DA6NQ7DfCLdkGOgKqU
 ```
 
-### Access Vaults from web browser
+### Access Vaults
 
-#### From inside container
+#### From inside containers
 Vault variables are already imported by Docker Compose.
 Just login to container and start using vault cli tool:
 
@@ -34,7 +34,7 @@ docker exec -it vault-enterprse sh
 vault status
 ```
 
-#### From web browser
+#### From a web browser
 
 Open source http://localhost:8201
 Eterprise   http://localhost:8202
