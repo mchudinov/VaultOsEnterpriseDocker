@@ -67,3 +67,8 @@ vault write sys/license text=0123abc....
 ```
 
 ### Activate KV engine
+
+## Stop and remove containers
+```sh
+docker-compose down
+```
